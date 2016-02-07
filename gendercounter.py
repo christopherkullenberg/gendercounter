@@ -26,32 +26,36 @@ text = thetext.split()
 
 #Two functions for counting men and women in text
 def raknakvinnor():
-    kvinnonamnfrekvens = {}
+    kvinnocounter = 0 #counts absolute numbers of names
+    kvinnonamnfrekvens = {} #counts unique names
     for t in text:
         if t in kvinnodict:
             kvinnonamnfrekvens[t] = kvinnodict[t]
-    return kvinnonamnfrekvens
+            kvinnocounter += 1
+    return(kvinnonamnfrekvens, kvinnocounter)
 
 def raknamaen():
+    maencounter = 0
     maennamnfrekvens = {}
     for t in text:
         if t in maendict:
             maennamnfrekvens[t] = maendict[t]
-    return maennamnfrekvens
+            maencounter += 1
+    return(maennamnfrekvens, maencounter)
 
 #Launch the functions
 kvinnorslutresultat = raknakvinnor()
 maenslutresultat = raknamaen()
 
-#Print the results
-print("Det finns " + str(len(kvinnorslutresultat)) + " kvinnor i texten:")
-for keys, values in kvinnorslutresultat.items():
+#Print the names
+for keys, values in kvinnorslutresultat[0].items():
     print("\t" + keys, values)
-
-print("Det finns " + str(len(maenslutresultat)) + " män i texten:")
-for keys, values in maenslutresultat.items():
+for keys, values in maenslutresultat[0].items():
     print("\t" + keys, values)
 
 #Print again at bottom of screeen
-print("Det finns " + str(len(kvinnorslutresultat)) + " kvinnor i texten.")
-print("Det finns " + str(len(maenslutresultat)) + " män i texten.")
+print("Det finns " + str(len(kvinnorslutresultat[0])) + " unika kvinnonamn i texten.")
+print("Det finns " + str(len(maenslutresultat[0])) + " unika mansnamn i texten.")
+
+print("Absoluta tal kvinnor: " + str(kvinnorslutresultat[1]))
+print("Absoluta tal män: " + str(maenslutresultat[1]))
