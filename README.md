@@ -13,6 +13,7 @@ Note: This is a very early test script. I haven't figured out precisely what is 
 - Some names are also frequent Swedish words, for example "De".
 - Uncommon names (less than 250 occurrences) were excluded.
 - Some names are gender neutral ("Charlie", "Mario", "Alex" etc.)
+- Names are skipped if in proximity to a comma, for example "Sven, Lisa, Annelie". Need to fix some stemming. 
 
 ## Removed names
 - "De"
