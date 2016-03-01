@@ -1,3 +1,4 @@
+#!/usr/bin/env python3
 from sys import argv
 import re
 
@@ -33,7 +34,7 @@ def textinput(text):
 def loadkvinnodict():
     '''Open the name lists: [0] is freq and [1] is name. Return as dict.'''
     kvinnodict = {}
-    with open('female250.tsv', 'r') as kvinnofile:
+    with open('female250.tsv', 'r', encoding='utf-8') as kvinnofile:
         kvinnor = zip((line.strip().split('\t') for line in kvinnofile))
         for row in kvinnor:
             for r in row:
@@ -42,7 +43,7 @@ def loadkvinnodict():
 
 def loadmaendict():
     maendict = {}
-    with open('male250.tsv', 'r') as maenfile:
+    with open('male250.tsv', 'r', encoding='utf-8') as maenfile:
         maen = zip((line.strip().split('\t') for line in maenfile))
         for row in maen:
             for r in row:
