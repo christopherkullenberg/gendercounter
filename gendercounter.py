@@ -15,7 +15,13 @@ thetext = thefile.read()
 def textinput(text):
     '''When used as a module, this function returns the results in tuples and
     dictionaries. See the printresultsterminal() function below.'''
-    text = text.split()
+    textsplit = text.split()
+    text = []
+    # This loop removes special chars from each word.
+    for t in textsplit:
+        tclean = re.sub(r'[^A-Za-z0-9]+',r'',t)
+        text.append(tclean)
+
     kvinnorslutresultat = raknakvinnor(loadkvinnodict(), text)
     maenslutresultat = raknamaen(loadmaendict(), text)
     henslutresultat = raknahen(text)
