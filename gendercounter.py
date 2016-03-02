@@ -20,7 +20,7 @@ def textinput(text):
     text = []
     # This loop removes special chars from each word.
     for t in textsplit:
-        tclean = re.sub(r'[^A-Za-z0-9]+',r'',t)
+        tclean = re.sub(r'[.,]+',r'',t)
         text.append(tclean)
 
     kvinnorslutresultat = raknakvinnor(loadkvinnodict(), text)
@@ -126,6 +126,8 @@ def printresultsterminal():
     '''This function can be invoked to print out a clean terminal output'''
     print("Det finns " + str(len(result[0][0])) + " unika kvinnonamn i texten.")
     print("Det finns " + str(len(result[1][0])) + " unika mansnamn i texten.")
+    print("Kvinnonamn: " + str(result[0]))
+    print("Mansnamn: " + str(result[1]))
     print("Absoluta tal kvinnor: " + str(result[0][1]))
     print("Absoluta tal män: " + str(result[1][1]))
     print("Antalet hen, henom, hens : " + str(result[2]))
