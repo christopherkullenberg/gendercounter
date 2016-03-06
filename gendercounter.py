@@ -20,7 +20,7 @@ def textinput(text):
     text = []
     # This loop removes special chars from each word.
     for t in textsplit:
-        tclean = re.sub(r'[.,]+',r'',t)
+        tclean = re.sub(r'[.,\?!]+',r'',t)
         text.append(tclean)
 
     kvinnorslutresultat = raknakvinnor(loadkvinnodict(), text)
