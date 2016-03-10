@@ -1,17 +1,37 @@
 #!/usr/bin/env python3
-from sys import argv
+#from sys import argv
 import re
 
-'''This takes a file as input and stores it in the text variable.
-   However, you can also comment out the file argv section below and use this
-using this script as a module (import gendercounter). Also you should comment
-out the variable "result" at the bottom of the script and use a similar argument
-to pass text to gendercounter.textinput(text).'''
-# Start commenting out here
-script, filename = argv
-thefile = open(filename, 'r')
-thetext = thefile.read()
-# Stop commenting out here
+'''
+A series of functions for counting gendered Swedish names in text.
+Import this script along with the tsv files containing names and frequencies:
+
+  female250.tsv
+  male250.tsv
+
+Then you can:
+
+  import gendercouter
+
+Then the following function will take text as input:
+
+  gendercounter.textinput('Hej hen heter Lisa eller Kalle')
+
+Wich will return the result as tuples and dictionaries like so:
+
+  (({'Lisa': '31611'}, 1), ({'Kalle': '2903'}, 1), (1, 0, 0), (0, 0, 0), (0, 0, 0))
+
+The output is explained here:
+
+https://github.com/christopherkullenberg/gendercounter
+
+The commented out lines can be used to convert this to a script that takes
+files as input.
+'''
+
+#script, filename = argv
+#thefile = open(filename, 'r')
+#thetext = thefile.read()
 
 def textinput(text):
     '''When used as a module, this function returns the results in tuples and
@@ -122,8 +142,9 @@ def raknahan(text):
             continue
     return(han, honom, hans)
 
+'''
 def printresultsterminal():
-    '''This function can be invoked to print out a clean terminal output'''
+    #This function can be invoked to print out a clean terminal output
     print("Det finns " + str(len(result[0][0])) + " unika kvinnonamn i texten.")
     print("Det finns " + str(len(result[1][0])) + " unika mansnamn i texten.")
     print("Kvinnonamn: " + str(result[0]))
@@ -134,6 +155,7 @@ def printresultsterminal():
     print("Antalet hon, henne, hennes : " + str(result[3]))
     print("Antalet han*, honom, hans* : " + str(result[4]))
     print('Obs: "Han" och "Hans" kan också vara manliga förnamn.')
+'''
 
-result = textinput(thetext) # Uncomment and use similarly when used as module
-printresultsterminal() # Comment out when used as a module
+#result = textinput(thetext)
+#printresultsterminal()
