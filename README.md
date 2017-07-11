@@ -36,20 +36,24 @@ text = gendercounter.from_string(example)
 
 text.genderfrequency()
 
-    {'Men': 3, 'Women': 2}
+{'Men': 3, 'Women': 2}
 
 text.pronounfrequency()
 
-    {'han': 1,
-     'hans': 0,
-     'hen': 1,
-     'henne': 0,
-     'hennes': 0,
-     'henom': 1,
-     'hens': 1,
-     'hon': 2,
-     'honom': 0}
+{'han': 1,
+ 'hans': 0,
+ 'hen': 1,
+ 'henne': 0,
+ 'hennes': 0,
+ 'henom': 1,
+ 'hens': 1,
+ 'hon': 2,
+ 'honom': 0}
 
+# Returns names and the number of people with that name in Sweden.
+text.names()
+{'Men': {'Bertil': '68261', 'Karl': '209908', 'Ove': '33731'},
+ 'Women': {'Lisa': '31611', 'Stina': '19071'}}
 ```
 ### Usage 2: From a text file
 
@@ -58,14 +62,14 @@ textfile = gendercounter.from_textfile("testtext.txt")
 
 textfile.genderfrequency()
 
-    {'Men': 15, 'Women': 7}
+{'Men': 15, 'Women': 7}
 ```
 ### Usage 3: Do both as a single line of code
 
 ```python
 gendercounter.from_textfile("testtext2.txt").genderfrequency()
 
-    {'Men': 43, 'Women': 29}
+{'Men': 43, 'Women': 29}
 ```
 ### Usage 4: Iterate over multiple files, example
 
@@ -81,32 +85,32 @@ for file in listdir('.'):
             print(k, v)
         print("-" * 10)
 
-    testtext2.txt
-    Men 43
-    Women 29
-    han 1
-    henom 0
-    hennes 0
-    henne 0
-    hon 0
-    hen 0
-    honom 0
-    hens 0
-    hans 0
-    ----------
-    testtext.txt
-    Men 15
-    Women 7
-    han 1
-    henom 2
-    hennes 2
-    henne 2
-    hon 2
-    hen 2
-    honom 0
-    hens 2
-    hans 0
-    ----------
+testtext2.txt
+Men 43
+Women 29
+han 1
+henom 0
+hennes 0
+henne 0
+hon 0
+hen 0
+honom 0
+hens 0
+hans 0
+----------
+testtext.txt
+Men 15
+Women 7
+han 1
+henom 2
+hennes 2
+henne 2
+hon 2
+hen 2
+honom 0
+hens 2
+hans 0
+----------
 
 ```
 
