@@ -35,11 +35,13 @@ example = """Karl och Lisa promenerar på gatan och
 text = gendercounter.from_string(example)
 
 text.genderfrequency()
+```
 
 {'Men': 3, 'Women': 2}
 
+```python
 text.pronounfrequency()
-
+```
 {'han': 1,
  'hans': 0,
  'hen': 1,
@@ -50,8 +52,10 @@ text.pronounfrequency()
  'hon': 2,
  'honom': 0}
 
+```python
 # Returns names and the number of people with that name in Sweden.
 text.names()
+```
 {'Men': {'Bertil': '68261', 'Karl': '209908', 'Ove': '33731'},
  'Women': {'Lisa': '31611', 'Stina': '19071'}}
 ```
@@ -61,16 +65,18 @@ text.names()
 textfile = gendercounter.from_textfile("testtext.txt")
 
 textfile.genderfrequency()
+```
 
 {'Men': 15, 'Women': 7}
-```
+
 ### Usage 3: Do both as a single line of code
 
 ```python
 gendercounter.from_textfile("testtext2.txt").genderfrequency()
+```
 
 {'Men': 43, 'Women': 29}
-```
+
 ### Usage 4: Iterate over multiple files, example
 
 ```python
@@ -84,6 +90,7 @@ for file in listdir('.'):
         for k, v in gendercounter.from_textfile(file).pronounfrequency().items():
             print(k, v)
         print("-" * 10)
+```
 
 testtext2.txt
 Men 43
@@ -97,7 +104,7 @@ hen 0
 honom 0
 hens 0
 hans 0
-----------
+
 testtext.txt
 Men 15
 Women 7
@@ -110,9 +117,7 @@ hen 2
 honom 0
 hens 2
 hans 0
-----------
 
-```
 
 
 ## Sources of error
