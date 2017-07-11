@@ -11,7 +11,8 @@ Import the gendercounter.py script along with the tsv files containing names and
     female250.tsv
     male250.tsv
 
-The first two dictionaries list female and male names respectively, along with the frequency of occurrence according to Statistics Sweden (2015). The tuples contain the pronouns hen/hon/han according to the following variations.
+The first two dictionaries list female and male names respectively, along with the frequency of occurrence according to Statistics Sweden (2015).
+Also, the following pronouns can be counted.
 
 1. hen/henom/hens
 2. hon/henne/hennes
@@ -22,10 +23,7 @@ The first two dictionaries list female and male names respectively, along with t
 
 ```python
 import gendercounter # Just import as usual.
-```
 
-
-```python
 example = """Karl och Lisa promenerar på gatan och
             tycker om Ove och Stina och Bertil.
             Hon, han, hen, henom. Hon hens"""
@@ -35,16 +33,12 @@ example = """Karl och Lisa promenerar på gatan och
 
 ```python
 text = gendercounter.from_string(example)
-```
 
-```python
 text.genderfrequency()
-```
+
     {'Men': 3, 'Women': 2}
 
-```python
 text.pronounfrequency()
-```
 
     {'han': 1,
      'hans': 0,
@@ -56,26 +50,23 @@ text.pronounfrequency()
      'hon': 2,
      'honom': 0}
 
+```
 ### Usage 2: From a text file
 
 ```python
 textfile = gendercounter.from_textfile("testtext.txt")
-```
 
-```python
 textfile.genderfrequency()
-```
 
     {'Men': 15, 'Women': 7}
-
+```
 ### Usage 3: Do both as a single line of code
 
 ```python
 gendercounter.from_textfile("testtext2.txt").genderfrequency()
-```
 
     {'Men': 43, 'Women': 29}
-
+```
 ### Usage 4: Iterate over multiple files, example
 
 ```python
@@ -89,7 +80,6 @@ for file in listdir('.'):
         for k, v in gendercounter.from_textfile(file).pronounfrequency().items():
             print(k, v)
         print("-" * 10)
-```
 
     testtext2.txt
     Men 43
@@ -117,8 +107,6 @@ for file in listdir('.'):
     hens 2
     hans 0
     ----------
-
-```python
 
 ```
 
