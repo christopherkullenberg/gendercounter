@@ -118,7 +118,9 @@ honom 0
 hens 2
 hans 0
 
+## Concurrency
 
+If you work with large datasets, check out the ``concurrency.ipynb`` notebook for an example of concurrent computing. 
 
 ## Sources of error
 - Some names are also frequent Swedish words, for example "De".
